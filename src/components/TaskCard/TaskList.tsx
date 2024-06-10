@@ -4,12 +4,15 @@ import TaskCard from './TaskCard'
 
 interface TasksListProps {
   tasks: Task[]
+  filter: string
 }
 
-const TasksLists: FC<TasksListProps> = ({ tasks }) => {
+const TasksLists: FC<TasksListProps> = ({ tasks, filter }) => {
+  const filteredTodos = filter ? tasks.filter((todo) => todo.title.toLowerCase().includes(filter.toLowerCase())) : tasks
+
   return (
     <>
-      {tasks.map((todo: Task) => (
+      {filteredTodos.map((todo: Task) => (
         <TaskCard task={todo} key={`task-${todo.id}`} />
       ))}
     </>
