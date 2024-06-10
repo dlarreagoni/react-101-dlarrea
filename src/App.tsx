@@ -4,20 +4,21 @@ import TaskCard from './components/Layout/TaskCard'
 import { Task } from './types'
 
 function App() {
-  const todo: Task = {
-    id: 1,
-    title: 'Prueba titulo task',
-    description: 'descripcion',
-    completed: false
-  }
+  const todosList: Task[] = [
+    { id: 1, title: 'Prueba título 1', description: 'Descripción 1', completed: false },
+    { id: 2, title: 'Prueba título 2', description: 'Descripción 2', completed: true },
+    { id: 3, title: 'Prueba título 3', description: 'Descripción 3', completed: false },
+    { id: 4, title: 'Prueba título 4', description: 'Descripción 4', completed: true },
+  ]
 
   return (
     <Layout>
-      <TaskCard task={todo} />
+      {todosList.map((todo) => (
+        <TaskCard key={todo.id} task={todo} />
+      ))}
       <div>Contenido de la aplicación</div>
     </Layout>
   )
 }
-
 
 export default App
