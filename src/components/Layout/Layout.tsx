@@ -1,10 +1,11 @@
 import { FC, PropsWithChildren } from 'react'
+import Header from '../Header/Header'
 
 const Layout: FC<PropsWithChildren> = ({children}) => {
     return <div>
-        <header>Cabecera</header>
+        <Header title="Test"/>
         <main>{children}</main>
-        <footer>Pie de pagina</footer>
+        <footer><h3>Pie de pagina</h3></footer>
         </div>
 }
 
