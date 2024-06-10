@@ -12,6 +12,12 @@ const TasksLists: FC<TasksListProps> = ({ tasks, filter }) => {
 
   return (
     <>
+      {filter && (
+        <p>
+          {filteredTodos.length} encontradas; Filtrando por la palabra: {filter}
+        </p>
+      )}
+      {!filter && <p>Sin filtro</p>}
       {filteredTodos.map((todo: Task) => (
         <TaskCard task={todo} key={`task-${todo.id}`} />
       ))}

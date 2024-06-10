@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import Layout from './components/Layout/Layout'
-import SearchBar from './components/Search/Search'
+import SearchBar from './components/Search/SearchBar'
 import TasksLists from './components/TaskCard/TaskList'
 import { Task } from './types'
 
@@ -16,7 +16,7 @@ function App() {
 
   return (
     <Layout>
-      <SearchBar searchText={searchText} setSearchText={setSearchText} />
+      <SearchBar onSearch={(searchText: string) => setSearchText(searchText)} />
       <br />
       <TasksLists tasks={todosList} filter={searchText} />
     </Layout>
