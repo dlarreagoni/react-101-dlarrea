@@ -1,7 +1,8 @@
 import './App.css'
+import Layout from './components/Layout'
 
 function App() {
-  return <main>Hello world, wellcome to my first React application</main>
+  return <Layout>Hello world, wellcome to my first React application</Layout>
 }
 
 
