@@ -8,7 +8,6 @@ function App() {
     { id: 1, title: 'Prueba título 1', description: 'Descripción 1', completed: false },
     { id: 2, title: 'Prueba título 2', description: 'Descripción 2', completed: true },
     { id: 3, title: 'Prueba título 3', description: 'Descripción 3', completed: false },
-    { id: 4, title: 'Prueba título 4', description: 'Descripción 4', completed: true },
   ]
 
   return (
