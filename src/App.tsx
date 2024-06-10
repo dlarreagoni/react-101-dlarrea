@@ -1,6 +1,8 @@
+import { useState } from 'react'
 import './App.css'
 import Layout from './components/Layout/Layout'
-import TaskCard from './components/Layout/TaskCard'
+import SearchBar from './components/Search/Search'
+import TaskCard from './components/TaskCard/TaskCard'
 import { Task } from './types'
 
 function App() {
@@ -10,9 +12,20 @@ function App() {
     { id: 3, title: 'Prueba título 3', description: 'Descripción 3', completed: false },
   ]
 
+  const [searchText, setSearchText] = useState('')
+
+  const filteredTodos = todosList.filter(
+    (todo) =>
+      todo.title.toLowerCase().includes(searchText.toLowerCase()) ||
+      todo.description.toLowerCase().includes(searchText.toLowerCase()),
+  )
+
   return (
     <Layout>
-      {todosList.map((todo) => (
+      <SearchBar searchText={searchText} setSearchText={setSearchText} />
+      <br />
+      <br />
+      {filteredTodos.map((todo) => (
         <TaskCard key={todo.id} task={todo} />
       ))}
       <div>Contenido de la aplicación</div>
