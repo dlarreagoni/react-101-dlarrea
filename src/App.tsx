@@ -1,9 +1,10 @@
 import { useState } from 'react'
 import './App.css'
+import CreateTaskForm from './components/CreateTaskForm/CreateTaskForm'
 import Layout from './components/Layout/Layout'
 import SearchBar from './components/Search/SearchBar'
 import TasksLists from './components/TaskCard/TaskList'
-import { Task } from './types'
+import { Task, TaskWithoutId } from './types'
 
 function App() {
   const todosList: Task[] = [
@@ -13,12 +14,22 @@ function App() {
   ]
 
   const [searchText, setSearchText] = useState<string>('')
+  const [tasks, setTasks] = useState(todosList)
+
+  const handleTaskCreated = (task: TaskWithoutId) => {
+    const newTask: Task = {
+      id: tasks.length + 1,
+      ...task,
+    }
+    setTasks([...tasks, newTask])
+  }
 
   return (
     <Layout>
       <SearchBar onSearch={(searchText: string) => setSearchText(searchText)} />
       <br />
-      <TasksLists tasks={todosList} filter={searchText} />
+      <TasksLists tasks={tasks} filter={searchText} />
+      <CreateTaskForm onTaskCreated={handleTaskCreated} />
     </Layout>
   )
 }

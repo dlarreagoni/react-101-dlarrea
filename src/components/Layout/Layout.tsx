@@ -1,16 +1,14 @@
 import { FC, PropsWithChildren } from 'react'
-import css from '../TaskCard/Task.module.css'
 import Header from './Header/Header'
+import './Layout.module.css'
 
 const Layout: FC<PropsWithChildren> = ({ children }) => {
   return (
-    <div className={css.card}>
-      <Header title="Code learning" />
+    <>
+      <Header title="mi titulo" />
       <main>{children}</main>
-      <footer>
-        <h3>Pie de pagina</h3>
-      </footer>
-    </div>
+      <footer>Pie de página</footer>
+    </>
   )
 }
 

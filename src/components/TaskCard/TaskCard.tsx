@@ -1,16 +1,21 @@
 import { FC } from 'react'
 import { Task } from '../../types'
+import css from './TaskCard.module.css'
 
-interface TaskCardProps {
+export interface TaskCardProps {
   task: Task
 }
 
 const TaskCard: FC<TaskCardProps> = ({ task }) => {
   return (
-    <div className="card">
-      <>
-        {task.id}: {task.title}, {task.description}, resultado: {task.completed ? 'Completada' : 'Pendiente'}
-      </>
+    <div className={`${css.card} ${task.completed ? css.completed : css.incomplete}`}>
+      <div className={css.check}>
+        <input type="checkbox" checked={task.completed} readOnly />
+      </div>
+      <div className={css.info}>
+        <div className={css.title}>{task.title}</div>
+        {task.description && <div className={css.description}>{task.description}</div>}
+      </div>
     </div>
   )
 }

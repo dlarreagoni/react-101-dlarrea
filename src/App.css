@@ -1,43 +1,83 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+@import url("https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&display=swap");
+
+:root {
+  --color-bg: #eaeef6;
+  --color-bg-secondary: #fff;
+  --color-shadow: rgba(65, 51, 183, 0.25);
+  --color-text-primary: #141b22;
+  --color-text-secondary: #a0a0a0;
+  --color-button-primary: #6558d3;
+  --color-bg-button-primary: #fff;
+  --color-bg-header: #333;
+  --color-text-header: var(--color-bg-secondary);
+}
+
+body {
+  font-family: "Spline Sans", sans-serif;
+  line-height: 1.5;
+  min-height: 100vh;
+  background-color: var(--color-bg);
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 2rem;
-  text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+ul {
+  list-style: none;
+  padding: 0;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+button {
+  font: inherit;
+  background-color: var(--color-bg-button-primary);
+  border-radius: 6px;
+  color: var(--color-button-primary);
+  font-weight: 500;
+  font-size: 1.125rem;
+  border: 0;
+  padding: .5em;
+  border: 2px solid var(--color-button-primary);
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  &:hover,
+  &:focus {
+    background-color: var(--color-button-primary);
+    color: var(--color-bg-button-primary);
   }
 }
 
-.card {
-  padding: 2em;
-  border: 1px solid #ccc;
+input,
+textarea {
+  font: inherit;
+  padding: .5em;
+  border-radius: 6px;
+  border: 2px solid var(--color-text-secondary);
 }
 
-.read-the-docs {
-  color: #888;
+.vertical-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 300px;
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
 }
