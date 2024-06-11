@@ -24,11 +24,16 @@ function App() {
     setTasks([...tasks, newTask])
   }
 
+  const handleTaskChanged = (task: Task) => {
+    const newTasks = tasks.map((t) => (t.id === task.id ? task : t))
+    setTasks(newTasks)
+  }
+
   return (
     <Layout>
       <SearchBar onSearch={(searchText: string) => setSearchText(searchText)} />
       <br />
-      <TasksLists tasks={tasks} filter={searchText} />
+      <TasksLists tasks={tasks} filter={searchText} onTaskChanged={handleTaskChanged} />
       <CreateTaskForm onTaskCreated={handleTaskCreated} />
     </Layout>
   )
