@@ -1,14 +1,15 @@
-import { FC } from 'react'
+import { FC, useContext } from 'react'
 import { Task } from '../../types'
+import { TasksContext } from '../TasksContext/TasksContext'
 import css from './TaskCard.module.css'
 
 export interface TaskCardProps {
   task: Task
-  onTaskChanged: (task: Task) => void
 }
 
-const TaskCard: FC<TaskCardProps> = ({ task, onTaskChanged }) => {
-  const handleChange = () => onTaskChanged({ ...task, completed: !task.completed })
+const TaskCard: FC<TaskCardProps> = ({ task }) => {
+  const { updateTask } = useContext(TasksContext)
+  const handleChange = () => updateTask({ ...task, completed: !task.completed })
 
   return (
     <div className={`${css.card} ${task.completed ? css.completed : css.incomplete}`}>
